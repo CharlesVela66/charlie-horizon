@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 
+import { authFormSchema } from '@/lib/utils';
+import { Control } from 'react-hook-form';
+
 declare type SearchParamProps = {
   params: { [key: string]: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -8,14 +11,14 @@ declare type SearchParamProps = {
 // ========================================
 
 declare type SignUpParams = {
-  firstName: string;
-  lastName: string;
-  address1: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  dateOfBirth: string;
-  ssn: string;
+  firstName?: string;
+  lastName?: string;
+  address1?: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
+  dateOfBirth?: string;
+  ssn?: string;
   email: string;
   password: string;
 };
@@ -33,6 +36,7 @@ declare type User = {
   dwollaCustomerId: string;
   firstName: string;
   lastName: string;
+  name: string;
   address1: string;
   city: string;
   state: string;
@@ -92,13 +96,13 @@ declare type Bank = {
 };
 
 declare type AccountTypes =
-  | "depository"
-  | "credit"
-  | "loan "
-  | "investment"
-  | "other";
+  | 'depository'
+  | 'credit'
+  | 'loan '
+  | 'investment'
+  | 'other';
 
-declare type Category = "Food and Drink" | "Travel" | "Transfer";
+declare type Category = 'Food and Drink' | 'Travel' | 'Transfer';
 
 declare type CategoryCount = {
   name: string;
@@ -145,11 +149,11 @@ declare interface CreditCardProps {
 declare interface BankInfoProps {
   account: Account;
   appwriteItemId?: string;
-  type: "full" | "card";
+  type: 'full' | 'card';
 }
 
 declare interface HeaderBoxProps {
-  type?: "title" | "greeting";
+  type?: 'title' | 'greeting';
   title: string;
   subtext: string;
   user?: string;
@@ -174,7 +178,7 @@ declare interface PaginationProps {
 
 declare interface PlaidLinkProps {
   user: User;
-  variant?: "primary" | "ghost";
+  variant?: 'primary' | 'ghost';
   dwollaCustomerId?: string;
 }
 
@@ -188,7 +192,7 @@ declare interface PlaidLinkProps {
 // };
 
 declare interface AuthFormProps {
-  type: "sign-in" | "sign-up";
+  type: 'sign-in' | 'sign-up';
 }
 
 declare interface BankDropdownProps {
@@ -210,6 +214,7 @@ declare interface TotlaBalanceBoxProps {
 
 declare interface FooterProps {
   user: User;
+  type?: 'mobile' | 'desktop';
 }
 
 declare interface RightSidebarProps {
@@ -325,4 +330,24 @@ declare interface getBankProps {
 
 declare interface getBankByAccountIdProps {
   accountId: string;
+}
+
+const formSchema = authFormSchema('sign-up');
+
+declare interface customInputProps {
+  label: string;
+  control: Control<z.infer<typeof formSchema>>;
+  type:
+    | 'password'
+    | 'email'
+    | 'username'
+    | 'firstName'
+    | 'lastName'
+    | 'address1'
+    | 'city'
+    | 'state'
+    | 'postalCode'
+    | 'dateOfBirth'
+    | 'ssn';
+  placeholder: string;
 }
