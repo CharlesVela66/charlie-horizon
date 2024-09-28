@@ -2,9 +2,10 @@ import { formatAmount } from '@/lib/utils';
 import React from 'react';
 import AnimatedCounter from './AnimatedCounter';
 import DoughnutChart from './DoughnutChart';
+import { TotlaBalanceBoxProps } from '@/types';
 
 const TotalBalanceBox = ({
-  accounts = [],
+  accounts,
   totalBanks,
   totalCurrentBalance,
 }: TotlaBalanceBoxProps) => {
