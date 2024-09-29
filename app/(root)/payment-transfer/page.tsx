@@ -7,7 +7,7 @@ import React from 'react';
 const PaymentTransfer = async () => {
   const loggedIn = await getLoggedInUser();
 
-  const accounts = await getAccounts({ userId: loggedIn.$id });
+  const accounts = await getAccounts({ userId: loggedIn?.$id });
 
   const accountsData = accounts?.data;
 
