@@ -26,7 +26,6 @@ import {
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { PaymentTransferFormProps } from '@/types';
-import CustomFormField from './CustomFormField';
 
 const formSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -98,12 +97,6 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(submit)} className="flex flex-col">
-        <CustomFormField
-          label="Select Source Bank"
-          control={form.control}
-          type="senderBank"
-          placeholder="Select the bank account you want to transfer funds from"
-        />
         <FormField
           control={form.control}
           name="senderBank"
