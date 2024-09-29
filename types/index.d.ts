@@ -348,6 +348,10 @@ declare interface customInputProps {
     | 'state'
     | 'postalCode'
     | 'dateOfBirth'
-    | 'ssn';
+    | 'ssn'
+    | 'senderBank'
+    | 'name'
+    | 'shareableId'
+    | 'amount';
   placeholder: string;
 }

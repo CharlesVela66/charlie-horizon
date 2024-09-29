@@ -23,7 +23,7 @@ const TransactionHistory = async ({
 
   const account = await getAccount({ appwriteItemId });
   return (
-    <div className="transactions">
+    <section className="transactions">
       <div className="transactions-header">
         <HeaderBox
           title="Transaction History"
@@ -53,7 +53,7 @@ const TransactionHistory = async ({
           <TransactionsTable transactions={account.transactions} />
         </section>
       </div>
-    </div>
+    </section>
   );
 };
 
